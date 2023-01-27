@@ -21,4 +21,13 @@
         <servlet-name>AreaCheckServlet</servlet-name>
         <url-pattern>/areaCheckServlet</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>RequestCounter</filter-name>
+        <filter-class>filters.RequestCounter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RequestCounter</filter-name>
+        <url-pattern>/controllerServlet</url-pattern>
+    </filter-mapping>
 </web-app>

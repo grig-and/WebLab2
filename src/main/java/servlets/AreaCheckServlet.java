@@ -45,10 +45,10 @@ public class AreaCheckServlet extends HttpServlet {
         }
         session.setAttribute("history", history);
         response.setContentType("text/html");
-        response.getWriter().write(generateTable(history));
+        response.getWriter().write(generateTable(history, response.getHeader("count")));
     }
 
-    private boolean checkMagicNumbers(double x, double y, double r) throws ServletException {
+    private boolean checkMagicNumbers(double x, double y, double r) {
         if (x == 42 || y == 42 || r == 42) {
             Model.clearHistory();
             return true;
@@ -73,7 +73,7 @@ public class AreaCheckServlet extends HttpServlet {
         return false;
     }
 
-    private String generateTable(ArrayList<HistoryRow> history) {
+    private String generateTable(ArrayList<HistoryRow> history, String count) {
         StringBuilder table = new StringBuilder();
         table.append("<table>");
         table.append("<tbody>");
@@ -88,6 +88,7 @@ public class AreaCheckServlet extends HttpServlet {
         for (HistoryRow row : history) {
             table.append(row.toString());
         }
+        table.append("<tr class='row'><td colspan='6'>Request count: " + count + "</th></tr>");
         table.append("</tbody>");
         table.append("</table>");
         return table.toString();

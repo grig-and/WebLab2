@@ -141,7 +141,7 @@ function drawPoints() {
     let zero = canvas.width / 2;
 
 
-    for (let i = 1; i < rows.length; i++) {
+    for (let i = 1; i < rows.length - 1; i++) {
         //parse numbers
         let x = parseFloat(rows[i].cells[0].innerText)
         let y = parseFloat(rows[i].cells[1].innerText)

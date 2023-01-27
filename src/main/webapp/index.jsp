@@ -69,13 +69,19 @@
             <th>Execution time</th>
             <th>Hit</th>
         </tr>
-<%= %>
+
         <%@ page import="model.Model" %>
         <%@ page import="model.HistoryRow" %>
         <% for (int i = 0; i < Model.getHistory().size(); i++) { %>
         <% HistoryRow row = Model.getHistory().get(i); %>
         <% out.println(row.toString()); %>
         <% } %>
+
+        <tr class='row'>
+            <td colspan='6'>
+                Request count:  <% out.println(request.getSession().getAttribute("count") == null ? 0 : request.getSession().getAttribute("count")); %>
+            </th>
+        </tr>
     </table>
 </div>
 

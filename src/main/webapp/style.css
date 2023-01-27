@@ -17,6 +17,11 @@ th {
     padding: 5px;
 }
 
+.row {
+    background-color: #232324;
+    color: white;
+}
+
 .row[value="true"] {
     background-color: rgba(0, 255, 0, 0.05);
     color: white;
